@@ -2,16 +2,48 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from datetime import datetime, date
+import django.utils.timezone
 
-class Category(models.Model):
-    name = models.CharField(max_length = 255)
+
+class ContactUs(models.Model):
+    body = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    post_date = models.DateField(auto_now_add = True)
 
     def __str__(self):
-        return self.name
+         return str(self.post_date)
     
 
     def get_absolute_url(self):
         return reverse('home')
+
+class AboutUs(models.Model):
+    body = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    post_date = models.DateField(auto_now_add = True)
+
+    def __str__(self):
+         return str(self.post_date)
+    
+
+    def get_absolute_url(self):
+        return reverse('our_services')
+
+class Category(models.Model):
+    name = models.CharField(max_length = 255)
+    body = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    post_date = models.DateField(auto_now_add = True)
+    likes = models.ManyToManyField(User, related_name='blog_posts')
+
+    def total_likes(self):
+        return self.likes.count()
+
+    def __str__(self):
+         return self.name 
+    
+    def get_absolute_url(self):
+        return reverse('our_services')
     
 
 class Post(models.Model):

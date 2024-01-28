@@ -19,13 +19,7 @@ class PostForm(forms.ModelForm):
             'body': forms.Textarea(attrs = {'class':'form-control'}),
         }
 
-# class CategoryForm(forms.ModelForm):
-#     class Meta:
-#         model = Category
-#         field = ('nmae')
-#         widget = {
-#             'name': forms.TextInput(attrs = {'class':'form-control', 'placeholder':'Input the title'}),
-#         }
+
 
 class EditForm(forms.ModelForm):
     class Meta:
@@ -35,5 +29,25 @@ class EditForm(forms.ModelForm):
             'title': forms.TextInput(attrs = {'class':'form-control', 'placeholder':'Input the title'}),
             'title_tag': forms.TextInput(attrs = {'class':'form-control'}),
             #'author': forms.Select(attrs = {'class':'form-control'}),
+            'body': forms.Textarea(attrs = {'class':'form-control'}),
+        }
+
+
+class ServiceForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = ('name','author','body')
+        widgets = {
+            'name': forms.TextInput(attrs = {'class':'form-control'}),
+            'author': forms.Select(attrs = {'class':'form-control'}),
+            'body': forms.Textarea(attrs = {'class':'form-control'}),
+        }
+
+class AboutUsForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = ('author','body')
+        widgets = {
+            'author': forms.Select(attrs = {'class':'form-control'}),
             'body': forms.Textarea(attrs = {'class':'form-control'}),
         }

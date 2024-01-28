@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
 {% block title%}
-Add Category Post
+Add Contact Us
 {% endblock %}
 {% block content %}
 
-<h1>Add Blog Category</h1>
+<h1>Add Contact Us Post</h1>
 <br><br><br>
 
 <div class="form-group">
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <button class="btn btn-secondary">Add Category</button>
+    <button class="btn btn-secondary">Post</button>
 </form>
 </div>
 

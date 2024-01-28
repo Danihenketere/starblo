@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
 
-    <h1>The Posts{{user.id}}</h1>
+    <h1>Contact Us</h1>
+    <hr>
     <ul>
         {% for post in object_list%}
-            <li>{{post.title}}
+           
             - {{post.author.first_name}}
             {{post.author.last_name}} 
-            <!-- <a href="{% url 'category' post.category|slugify %}" >{{post.category}}</a> -->
+            
             Created: {{post.post_date}}
             {% if user.is_authenticated %}
                 {% if user.id == 1 %}
-                    <small><a href="{% url 'update_post' post.pk %}">Edit</a></small>
-                    <small><a href="{% url 'delete_post' post.pk %}">Delete</a></small>
-                    <small><a href="{% url 'add_post' %}">Add Post</a></small>
+                    <small><a href="{% url 'update_contact_us_post' post.pk %}">Edit</a></small>
+                    <small><a href="{% url 'delete_contact_us_post' post.pk %}">Delete</a></small>
+                    <small><a href="{% url 'add_contact_us_post' %}">Add Post</a></small>
                 {% endif %}
             {% endif %}
                                     </br>
