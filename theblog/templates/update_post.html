@@ -11,8 +11,10 @@ Edit Blog Post
 <br><br><br>
 
 <div class="form-group">
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
+
+    <!-- {{ form.media }} -->
     {{ form.as_p }}
     <button class="btn btn-secondary">Update Post</button>
 </form>

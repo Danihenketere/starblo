@@ -6,6 +6,13 @@ from django.urls import reverse_lazy, reverse
 from django.http import HttpResponseRedirect
 #def home(request):
     #return render(request, 'home.html',{})
+# from django.contrib.auth import logout
+# from django.shortcuts import redirect
+
+# def logout_view(request):
+#     logout(request)
+#     return redirect('home')
+
 def LikeView(request, pk):
     post = get_object_or_404(Category, id=request.POST.get('post_id'))
     liked = False

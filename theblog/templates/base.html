@@ -39,7 +39,13 @@
                   <a class="nav-link" href="{% url 'add_service' %}">Add Services</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                  <a class="nav-link" href="{% url 'edit_profile' %}">Edit Profile</a>
+                </li>
+                <li class="nav-item">
+                  <form class="nav-link"  method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button class="btn btn-light" type="submit">Logout</button>
+                </form>
                 </li>
             
             {% else %}

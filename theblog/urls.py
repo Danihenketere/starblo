@@ -25,5 +25,6 @@ urlpatterns = [
     path('our_services/', ServiceView.as_view(), name='our_services'),
     path('service/<int:pk>/remove', DeleteServicePostView.as_view(), name='delete_service_post' ),
     path('like/<int:pk>', LikeView, name='like_service_post' ),
+    # path('password_success/', views.logout_view, name = 'logout'),
 
 ]

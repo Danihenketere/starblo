@@ -14,7 +14,8 @@
                 {% endif %}
             {% endif %}     
             </br>
-            {{post.body|safe}}
+            <!-- {{post.body|safe}} -->
+            {{post.snippet}}
             </li><br>
         {% endfor%}
     </ul>
