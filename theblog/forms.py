@@ -10,7 +10,7 @@ for item in choice:
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title','title_tag','author','category','advert','body','image1','image2','image3','image4','image5','image6')
+        fields = ('title','title_tag','author','category','advert','body','image1','img1b_post','img1s_post','image2','img2b_post','img2s_post','image3','img3b_post','img3s_post','image4','image5','image6')
         widgets = {
             'title': forms.TextInput(attrs = {'class':'form-control', 'placeholder':'Input the title'}),
             'title_tag': forms.TextInput(attrs = {'class':'form-control'}),
@@ -25,7 +25,7 @@ class PostForm(forms.ModelForm):
 class EditForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title','title_tag','advert','body','image1','image2','image3','image4','image5','image6')
+        fields = ('title','title_tag','advert','body','image1','img1b_post','img1s_post','image2','img2b_post','img2s_post','image3','img3b_post','img3s_post','image4','image5','image6')
         widgets = {
             'title': forms.TextInput(attrs = {'class':'form-control', 'placeholder':'Input the title'}),
             'title_tag': forms.TextInput(attrs = {'class':'form-control'}),
