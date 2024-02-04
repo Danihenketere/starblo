@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-
-    <h1>About Us</h1>
-    <hr>
+<div class="container">
+    <h1 class="text-uppercase"><center>About Us</center></h1>
+   
     <ul>
         {% for post in object_list%}
            
@@ -17,10 +17,11 @@
                     <small><a href="{% url 'add_about_us_post' %}">Add Post</a></small>
                 {% endif %}
             {% endif %}
+            <hr>
                                     </br>
             {{post.body|safe}}
             </li>
         {% endfor%}
     </ul>
-
+</div>
 {% endblock %}

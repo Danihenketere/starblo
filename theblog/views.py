@@ -131,7 +131,7 @@ class DeleteAboutUsPostView(DeleteView):
 class DeleteServicePostView(DeleteView):
     model = Category
     template_name = 'delete_service_post.html'
-    success_url = reverse_lazy('service_post')
+    success_url = reverse_lazy('our_services')
 
 class DeletePostView(DeleteView):
     model = Post

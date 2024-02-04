@@ -38,12 +38,14 @@ class EditForm(forms.ModelForm):
 class ServiceForm(forms.ModelForm):
     class Meta:
         model = Category
-        fields = ('name','author','snippet','body')
+        fields = ('name','author','snippet','advert','body')
         widgets = {
             'name': forms.TextInput(attrs = {'class':'form-control'}),
             'author': forms.Select(attrs = {'class':'form-control'}),
-            'body': forms.Textarea(attrs = {'class':'form-control'}),
             'snippet': forms.Textarea(attrs = {'class':'form-control'}),
+            'advert': forms.Textarea(attrs = {'class':'form-control'}),
+            'body': forms.Textarea(attrs = {'class':'form-control'}),
+            
         }
 
 class AboutUsForm(forms.ModelForm):

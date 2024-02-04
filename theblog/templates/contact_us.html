@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-
-    <h1>Contact Us</h1>
-    <hr>
+<div class="container">
+    <h1 class="text-uppercase"><center>Contact Us</center></h1>
+   
     <ul>
         {% for post in object_list%}
            
-            - {{post.author.first_name}}
+             {{post.author.first_name}}
             {{post.author.last_name}} 
             
             Created: {{post.post_date}}
@@ -17,10 +17,11 @@
                     <small><a href="{% url 'add_contact_us_post' %}">Add Post</a></small>
                 {% endif %}
             {% endif %}
+            <hr>
                                     </br>
             {{post.body|safe}}
             </li>
         {% endfor%}
     </ul>
-
+</div>
 {% endblock %}

@@ -4,20 +4,22 @@
         {{ category.name}}
     {% endblock %}
 {% block content %}
-    <h1>{{ category.name}}</h1>
-    <small>By: {{category.author.first_name}}  {{post.author.last_name}}
+<div class="container">
+    <h1 class="text-uppercase"><center>{{ category.name}}</center></h1>
+    <small>By: {{category.author.first_name}} {{post.author.last_name}} Created: {{category.post_date}}
     <br>
-    Created: {{category.post_date}}
+    
     {% if user.is_authenticated %}
         {% if user.id == 1 %}
             <small><a href="{% url 'update_service_post' category.pk %}">Edit</a></small>
             <small><a href="{% url 'delete_service_post' category.pk %}">Delete</a></small>
         {% endif %}
-    {% endif %}    
+    {% endif %}  
+</small>  
     <hr>
     <br>
     {{category.body| safe}}<br><br>
-    <a href="{% url 'home'%}" class="btn btn-secondary">Back</a>
+    <a href="{% url 'our_services'%}" class="btn btn-secondary">Back</a>
     <br><br><hr>
     
     <form action="{% url 'like_service_post' category.pk %}" method="POST">
@@ -30,9 +32,9 @@
             {% endif %}
             
         {% else %}
-            <small> <a class="nav-link" href="{% url 'login' %}">Login</a> to Like</small>
+            <small> <a class="nav-link" href="{% url 'login' %}">Login</a></small> to Like
         {% endif %}
             --{{total_likes}} Likes
     </form>
-
+</div>
 {% endblock %}

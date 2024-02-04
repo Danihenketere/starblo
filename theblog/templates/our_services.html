@@ -1,23 +1,36 @@
 {% extends 'base.html' %}
 {% block content %}
-
-    <h1>Our Services</h1>
+<div class="container">
+    <h1 class="text-uppercase"><center>Our Services</center></h1>
     <hr>
+    {% for post in object_list%}
     <ul>
-        {% for post in object_list%}
-           <li> <a href="{% url 'service_detail' post.pk %}">{{post.name}}</a>--{{post.author.first_name}}--{{post.author.last_name}}
+       
+           <li> <a class="nav-link" href="{% url 'service_detail' post.pk %}">{{post.name}}--{{post.author.first_name}}--{{post.author.last_name}}
             Created:{{post.post_date}}
             {% if user.is_authenticated %}
                 {% if user.id == 1 %}
                     <small><a href="{% url 'update_service_post' post.pk %}">Edit</a></small>
                     <small><a href="{% url 'delete_service_post' post.pk %}">Delete</a></small>
                 {% endif %}
-            {% endif %}     
+            {% endif %} 
+                </a>    
             </br>
             <!-- {{post.body|safe}} -->
-            {{post.snippet}}
+            
+            <div style="padding-left: 30px;">
+                <div class="row">
+                  <div class="col-md-9">{{post.snippet}}</div>
+                
+                {% if post.advert %}
+                  <div class="col">{{post.advert|safe}}</div>
+           
+                {% endif %}
+                </div>
+              </div>
             </li><br>
-        {% endfor%}
+       
     </ul>
-
+    {% endfor%}
+</div>
 {% endblock %}

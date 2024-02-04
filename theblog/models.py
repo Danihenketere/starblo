@@ -41,6 +41,7 @@ class Category(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     post_date = models.DateField(auto_now_add = True)
     likes = models.ManyToManyField(User, related_name='blog_posts')
+    advert = models.TextField(null = True, blank=True)
 
     def total_likes(self):
         return self.likes.count()
